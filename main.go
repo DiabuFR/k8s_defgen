@@ -135,6 +135,9 @@ func main() {
 
 	templateValues.Ports = ports.ports
 	clusterInfo := strings.SplitN(templateValues.Cluster, "_", 2)
+	if len(clusterInfo) != 2 {
+		log.Fatal("Invalid or missing cluster parameter")
+	}
 	templateValues.ClusterProvider = clusterInfo[0]
 	templateValues.ClusterZone = clusterInfo[1]
 
